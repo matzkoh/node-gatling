@@ -4,4 +4,7 @@ const { Gatling } = require('..');
   const gun = new Gatling('https://example.com/');
 
   await gun.start(10000).printInfo();
+
+  // WARN: Infinity
+  // await gun.start().printInfo();
 })();

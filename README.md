@@ -13,19 +13,22 @@ A tool that send huge number of http requests.
 ## How to use
 
 ```js
-const { Gatling } = require('node-gatling');
+const { Gatling } = require('..');
 
 (async () => {
-  const gun = new Gatling('http://example.com/');
+  const gun = new Gatling('https://example.com/');
 
-  await gun.start().printInfo();
+  await gun.start(10000).printInfo();
+
+  // WARN: Infinity
+  // await gun.start().printInfo();
 })();
 ```
 
-Also in [sample.js](sample.js).
+Also in [example/example.js](example/example.js).
 
 ```sh
-$ node sample.js
+$ node example/example.js
 ```
 
 ```sh
