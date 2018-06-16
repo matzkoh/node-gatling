@@ -1,0 +1,67 @@
+version: 2
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:10
+
+jobs:
+  test:
+    <<: *defaults  
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - node-modules-cache-{{ checksum "package.json" }}
+            - node-modules-cache-
+
+      - run:
+          name: Install
+          command: |
+              sudo npm install -g greenkeeper-lockfile
+              npm install
+              greenkeeper-lockfile-update
+
+      - run:
+          name: Test
+          command: npm test
+
+      - run:
+          name: Push lockfile & Upload coverage
+          command: |
+              greenkeeper-lockfile-upload
+              npx codecov
+
+      - save_cache:
+          key: node-modules-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  publish:
+    <<: *defaults
+
+    steps:
+      - attach_workspace:
+          at: ~/repo
+
+      - deploy:
+          name: Release
+          command: npx semantic-release
+
+workflows:
+  version: 2
+  test-and-publish:
+    jobs:
+      - test
+      - publish:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master

@@ -1,0 +1,59 @@
+{
+  "name": "@matzkoh/node-gatling",
+  "description": "A tool that send huge number of http(s) requests.",
+  "version": "0.0.0-development",
+  "author": "matzkoh <matzkoh@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/matzkoh/node-gatling/issues"
+  },
+  "devDependencies": {
+    "xo": "0.21.1"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "engines": {
+    "node": ">= 9",
+    "npm": ">= 6"
+  },
+  "files": [
+    "lib"
+  ],
+  "homepage": "https://github.com/matzkoh/node-gatling#readme",
+  "keywords": [
+    "gatling"
+  ],
+  "license": "MIT",
+  "main": "lib",
+  "prettier": {
+    "bracketSpacing": true,
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matzkoh/node-gatling.git"
+  },
+  "scripts": {
+    "test": "xo"
+  },
+  "xo": {
+    "prettier": true,
+    "space": true,
+    "rules": {
+      "no-await-in-loop": "off",
+      "yoda": [
+        "error",
+        "never",
+        {
+          "onlyEquality": true
+        }
+      ]
+    }
+  }
+}
