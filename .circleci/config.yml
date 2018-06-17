@@ -10,6 +10,8 @@ workflows:
       - publish:
           requires:
             - test
+            - test-node-v9
+            - test-node-v8
           filters:
             branches:
               only: master
