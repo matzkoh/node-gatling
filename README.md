@@ -1,5 +1,5 @@
 [![CircleCI](https://img.shields.io/circleci/project/github/matzkoh/node-gatling.svg)](https://circleci.com/gh/matzkoh/node-gatling)
-[![David](https://img.shields.io/david/matzkoh/node-gatling.svg)](https://david-dm.org/matzkoh/node-gatling)
+[![Renovate](https://badges.renovateapi.com/github/matzkoh/node-gatling)](https://renovatebot.com/)
 [![npm](https://img.shields.io/npm/v/@matzkoh/node-gatling.svg)](https://www.npmjs.com/package/@matzkoh/node-gatling)
 ![node](https://img.shields.io/node/v/@matzkoh/node-gatling.svg)
 ![License](https://img.shields.io/npm/l/@matzkoh/node-gatling.svg)
